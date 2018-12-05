@@ -172,8 +172,7 @@ function credit() {
        }
 
 
-  for (let i = card.length - 2; i >=0; i = i-2)
-  {
+  for (let i = card.length-2; i>=0; i=i-2) {
     let num = Number(card[i]) * 2;
     let numstring = num.toString();
     for (let j = 0; j < numstring.length; j += 1) {
@@ -244,9 +243,35 @@ function credit() {
  * All output should be displayed on the page, not printed to the console.
  */
 
-function guess() {
+  function guess() {
 
-  // WRITE YOUR EXERCISE 4 CODE HERE
+  let answer = Math.floor(Math.random() * (999)) + 1;
+  let guess;
+  let attempts = 0;
+
+  do {
+  guess = prompt('Guess an integer between 1 and 1000');
+  guess = parseFloat(guess);
+
+  if  (guess < 1 || guess > 1000 || isNaN(guess) || Number.isInteger(guess) == false) {
+    document.getElementById("guess-output").innerHTML = 'Enter int between 1 and 1000';
+    continue;
+  }
+  attempts++;
+
+  if (guess > answer){
+    alert('Too large.');
+    continue;
+  }
+
+  if (guess < answer) {
+    alert('Too small.');
+    continue;
+  }
+
+  } while (guess !== answer);
+
+  document.getElementById("guess-output").innerHTML = ('Good job, you guessed the number ' + answer + ' in '  + attempts + ' tries!');
 
   ////////////////// DO NOT MODIFY
   check('guess'); // DO NOT MODIFY
@@ -282,6 +307,40 @@ function hurricane() {
   ///////////////// DO NOT MODIFY
   let windspeed; // DO NOT MODIFY
   ///////////////// DO NOT MODIFY
+
+  do {
+    windspeed = prompt('Please enter a positive integer for your windspeed');
+    windspeed = parseFloat(windspeed);
+  } while ( windspeed < 0 || isNaN(windspeed) || Number.isInteger(windspeed) == false);
+
+  if (windspeed >= 157) {
+    document.getElementById("hurricane-output").innerHTML = "Category 5 Hurricane.";
+  }
+
+  else if (windspeed >= 130 && windspeed <= 156) {
+    document.getElementById("hurricane-output").innerHTML = "Category 4 Hurricane.";
+  }
+
+  else if (windspeed >= 111 && windspeed <= 129) {
+    document.getElementById("hurricane-output").innerHTML = "Category 3 Hurricane.";
+  }
+
+  else if (windspeed >= 96 && windspeed <= 110) {
+    document.getElementById("hurricane-output").innerHTML = "Category 2 Hurricane.";
+  }
+
+  else if (windspeed >= 74 && windspeed <= 95) {
+    document.getElementById("hurricane-output").innerHTML = "Category 1 Hurricane.";
+  }
+
+  else if (windspeed >= 39 && windspeed <= 73) {
+    document.getElementById("hurricane-output").innerHTML = "Tropical Storm.";
+  }
+
+  else {
+    document.getElementById("hurricane-output").innerHTML = "The skies are calm...";
+  }
+
 
   ///////////////////////////////// DO NOT MODIFY
   check('hurricane', windspeed); // DO NOT MODIFY
