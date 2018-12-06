@@ -311,7 +311,7 @@ function hurricane() {
   do {
     windspeed = prompt('Please enter a positive integer for your windspeed');
     windspeed = parseFloat(windspeed);
-  } while ( windspeed < 0 || isNaN(windspeed) || Number.isInteger(windspeed) == false);
+  } while (windspeed < 0 || isNaN(windspeed) || Number.isInteger(windspeed) == false);
 
   if (windspeed >= 157) {
     document.getElementById("hurricane-output").innerHTML = "Category 5 Hurricane.";
@@ -385,6 +385,45 @@ function gymnastics() {
    *       scores.push(secondScore);  // will likely be different than mine
    */
 
+let totalScores;
+let averageScores;
+
+do {
+score1 = Number(prompt("Please enter a value between 0 and 10"));
+} while (score1 < 0.0 || score1 > 10.0 || !Number.isInteger(score1));
+scores.push(score1);
+
+do {
+score2 = Number(prompt("Please enter a value between 0 and 10"));
+} while (score2 < 0.0 || score2 > 10.0 || !Number.isInteger(score2));
+scores.push(score2);
+
+do {
+score3 = Number(prompt("Please enter a value between 0 and 10"));
+} while (score3 < 0.0 || score3 > 10.0 || !Number.isInteger(score3));
+scores.push(score3);
+
+do {
+score4 = Number(prompt("Please enter a value between 0 and 10"));
+} while (score4 < 0.0 || score4 > 10.0 || !Number.isInteger(score4));
+scores.push(score4);
+
+do {
+score5 = Number(prompt("Please enter a value between 0 and 10"));
+} while (score5 < 0.0 || score5 > 10.0 || !Number.isInteger(score5));
+scores.push(score5);
+
+do {
+score6 = Number(prompt("Please enter a value between 0 and 10"));
+} while (score6 < 0.0 || score6 > 10.0 || !Number.isInteger(score6));
+scores.push(score6);
+
+totalScores = Number(score1) + Number(score2) + Number(score3) + Number(score4) + Number(score5) + Number(score6);
+
+averageScores = (totalScores - Math.max(score1, score2, score3, score4, score5, score6) - Math.min(score1, score2, score3, score4, score5, score6)) / 4;
+let p = document.getElementById("gymnastics-output");
+p.innerHTML = "Discarded: " + Math.min(score1, score2, score3, score4, score5, score6) + ", " + Math.max(score1, score2, score3, score4, score5, score6) + "<br />Score: " + averageScores.toFixed(2);
+
   /////////////////////////////// DO NOT MODIFY
   check('gymnastics', scores); // DO NOT MODIFY
   /////////////////////////////// DO NOT MODIFY
@@ -411,40 +450,106 @@ function gymnastics() {
  * All output should be displayed on the page, not printed to the console.
  */
 
-function reportCard() {
+ function reportCard() {
 
-  ///////////////////////// DO NOT MODIFY
-  let testTotal = 0; ////// DO NOT MODIFY
-  let quizTotal = 0; ////// DO NOT MODIFY
-  let homeworkTotal = 0; // DO NOT MODIFY
-  ///////////////////////// DO NOT MODIFY
+   ///////////////////////// DO NOT MODIFY
+   let testTotal = 0; ////// DO NOT MODIFY
+   let quizTotal = 0; ////// DO NOT MODIFY
+   let homeworkTotal = 0; // DO NOT MODIFY
+   ///////////////////////// DO NOT MODIFY
 
-  /*
-   * NOTE: The 'testTotal', 'quizTotal', and 'homeworkTotal' variables
-   *       should be representative of the sum of the test scores, quiz
-   *       scores, and homework scores the user enters, respectively.
-   */
+   /*
+    * NOTE: The 'testTotal', 'quizTotal', and 'homeworkTotal' variables
+    *       should be representative of the sum of the test scores, quiz
+    *       scores, and homework scores the user enters, respectively.
+    */
 
-  ///////////////////// DO NOT MODIFY
-  let tests = 0; ////// DO NOT MODIFY
-  let quizzes = 0; //// DO NOT MODIFY
-  let homeworks = 0; // DO NOT MODIFY
-  ///////////////////// DO NOT MODIFY
+   ///////////////////// DO NOT MODIFY
+   let tests = 0; ////// DO NOT MODIFY
+   let quizzes = 0; //// DO NOT MODIFY
+   let homeworks = 0; // DO NOT MODIFY
+   ///////////////////// DO NOT MODIFY
 
-  /*
-   * NOTE: The 'tests', 'quizzes', and 'homeworks' variables should be
-   *       representative of the number of tests, quizzes, and homework
-   *       grades the user enters, respectively.
-   */
+   let testscore;
+   let quizscore;
+   let homeworkscore;
+   let testaverage;
+   let quizaverage;
+   let homeworkaverage;
+   let totalaverage;
 
-  /////////////////////// DO NOT MODIFY
-  check('report-card', // DO NOT MODIFY
-    testTotal, ////////// DO NOT MODIFY
-    tests, ////////////// DO NOT MODIFY
-    quizTotal, ////////// DO NOT MODIFY
-    quizzes, //////////// DO NOT MODIFY
-    homeworkTotal, ////// DO NOT MODIFY
-    homeworks /////////// DO NOT MODIFY
-  ); //////////////////// DO NOT MODIFY
-  /////////////////////// DO NOT MODIFY
-}
+   /*
+    * NOTE: The 'tests', 'quizzes', and 'homeworks' variables should be
+    *       representative of the number of tests, quizzes, and homework
+    *       grades the user enters, respectively.
+    */
+
+ testscore = prompt('Enter a positive number between 1 and 100 for your test score. Enter -1 if you have entered all of your scores.')
+
+ while (testscore) {
+   testscore = parseFloat(testscore);
+     if (testscore == -1){
+         testscore = false;
+         break;
+       }
+     else if (testscore <= 100.00 && 0.0 <= testscore) {
+       tests += 1;
+       testTotal += testscore;
+     }
+     else {
+
+     }
+     testscore = prompt('Enter a positive number between 1 and 100 for your test score. Enter -1 if you have entered all of your scores.');
+   }
+
+ quizscore = prompt('Enter a positive number between 1 and 100 for your quiz score. Enter -1 if you have entered all of your scores.');
+   while (quizscore) {
+     quizscore = parseFloat(quizscore);
+       if (quizscore == -1){
+           quizscore = false;
+           break;
+         }
+       else if (quizscore <= 100.00 && 0.0 <=quizscore) {
+         quizzes += 1;
+         quizTotal += quizscore;
+       }
+       else {
+
+       }
+       quizscore = prompt('Enter a positive number between 1 and 100 for your quiz score. Enter -1 if you have entered all of your scores.');
+     }
+
+ homeworkscore = prompt('Enter a positive number between 1 and 100 for your homework score. Enter -1 if you have entered all of your scores.');
+     while (homeworkscore) {
+       homeworkscore = parseFloat(homeworkscore);
+          if (homeworkscore == -1){
+             homeworkscore = false;
+             break;
+           }
+         else if (homeworkscore <= 100.00) {
+           homeworks += 1;
+           homeworkTotal += homeworkscore;
+         }
+         else {
+         }
+         homeworkscore = prompt('Enter a positive number between 1 and 100 for your homework score. Enter -1 if you have entered all of your scores.');
+       }
+
+ testaverage = testTotal / tests;
+ quizaverage = quizTotal / quizzes;
+ homeworkaverage = homeworkTotal / homeworks;
+ totalaverage = (testaverage * 0.6) + (quizaverage * 0.3) + (homeworkaverage * 0.1);
+
+ document.getElementById("report-card-output").innerHTML = "Tests: " + testaverage.toFixed(2)+ "</br>Quizzes: " + quizaverage.toFixed(2)+ "</br>Homework: " + homeworkaverage.toFixed(2) + "</br>Grade: " + totalaverage.toFixed(2);
+
+   /////////////////////// DO NOT MODIFY
+   check('report-card', // DO NOT MODIFY
+     testTotal, ////////// DO NOT MODIFY
+     tests, ////////////// DO NOT MODIFY
+     quizTotal, ////////// DO NOT MODIFY
+     quizzes, //////////// DO NOT MODIFY
+     homeworkTotal, ////// DO NOT MODIFY
+     homeworks /////////// DO NOT MODIFY
+   ); //////////////////// DO NOT MODIFY
+   /////////////////////// DO NOT MODIFY
+ }
